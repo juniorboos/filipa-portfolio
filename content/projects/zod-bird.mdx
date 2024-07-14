@@ -1,10 +1,9 @@
 ---
 title: "Zod Bird"
 description: Zodbird is an e2e typed tinybird.co client library for typescript, leveraging zod for type safety and transformations
-repository: chronark/zod-bird
+repository: filipaoliveira/zod-bird
 date: "2023-05-21"
 published: true
-  
 ---
 
 - typesafe
@@ -13,9 +12,8 @@ published: true
 - built in cache directives for nextjs
 - built in retry logic for ratelimited requests
 
-
 ```ts
-import { Tinybird } from "@chronark/zod-bird";
+import { Tinybird } from "@filipaoliveira/zod-bird";
 import { z } from "zod";
 
 const tb = new Tinybird({ token: "token" });
@@ -31,8 +29,7 @@ export const getEvents = tb.buildPipe({
   }),
 });
 
-
-const res = await getEvents({ tenantId: "chronark" })
+const res = await getEvents({ tenantId: "filipaoliveira" });
 
 // res.data = {event: string, time: Date}[]
 ```
@@ -40,9 +37,8 @@ const res = await getEvents({ tenantId: "chronark" })
 ## Install
 
 ```
-npm i @chronark/zod-bird
+npm i @filipaoliveira/zod-bird
 ```
-
 
 ## Ingesting Data
 
@@ -82,8 +78,6 @@ await publishEvent({
 });
 ```
 
-
-
 ## Querying Endpoints
 
 ```ts
@@ -117,16 +111,15 @@ export const getChannelActivity = tb.buildPipe({
 // somewhere.ts
 import { getChannelActivity } from "./lib/tinybird";
 
-
 const res = await getChannelActivity({
-   tenantId: "1",
-   channelId: "1",
-   start: 123,
-   end: 1234,
-   granularity: "1h"
-})
-
+  tenantId: "1",
+  channelId: "1",
+  start: 123,
+  end: 1234,
+  granularity: "1h",
+});
 ```
+
 `res` is the response from the tinybird endpoint, but now fully typed and the data has been parsed according to the schema defined in `data`.
 
 ## Advanced
@@ -134,7 +127,6 @@ const res = await getChannelActivity({
 ### Caching
 
 You can add cache directives to each pipe.
-
 
 #### Disable caching (useful in Next.js where everything is cached by default)
 
@@ -170,3 +162,4 @@ tb.buildPipe({
       revalidate: 900 ;// <-------- Add this
     };
 });
+```
