@@ -4,27 +4,9 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import { Redis } from "@upstash/redis";
-import { Eye } from "lucide-react";
 import Image from "next/image";
 
-const redis = Redis.fromEnv();
-
-export const revalidate = 60;
 export default async function ProjectsPage() {
-  const views = (
-    await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":"))
-    )
-  ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
-  console.log(
-    views,
-    allProjects.map((p) => ["pageviews", "projects", p.slug].join(":"))
-  );
-
   const featured = allProjects.find((project) => project.slug === "sala-1")!;
   const top2 = allProjects.find((project) => project.slug === "sala-2")!;
   const top3 = allProjects.find((project) => project.slug === "escritorio")!;
@@ -70,14 +52,6 @@ export default async function ProjectsPage() {
             )}
             <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-8">
-                <div className="flex items-center justify-end gap-2">
-                  <span className="flex items-center gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0
-                    )}
-                  </span>
-                </div>
                 <h2
                   id="featured-post"
                   className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
@@ -108,7 +82,7 @@ export default async function ProjectsPage() {
                     className="absolute opacity-20 w-full h-full object-cover"
                   />
                 )}
-                <Article project={project} views={views[project.slug] ?? 0} />
+                <Article project={project} />
               </Card>
             ))}
           </div>
@@ -130,7 +104,7 @@ export default async function ProjectsPage() {
                       className="absolute opacity-20 w-full h-full object-cover"
                     />
                   )}
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
@@ -148,7 +122,7 @@ export default async function ProjectsPage() {
                       className="absolute opacity-20 w-full h-full object-cover"
                     />
                   )}
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
@@ -166,7 +140,7 @@ export default async function ProjectsPage() {
                       className="absolute opacity-20 w-full h-full object-cover"
                     />
                   )}
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Article project={project} />
                 </Card>
               ))}
           </div>
