@@ -6,22 +6,10 @@ import { Card } from "../components/card";
 
 const socials = [
   {
-    icon: <Twitter size={20} />,
-    href: "https://twitter.com/filipaoliveira_",
-    label: "Twitter",
-    handle: "@filipaoliveira_",
-  },
-  {
     icon: <Mail size={20} />,
-    href: "mailto:dev@filipaoliveira.vercel.app",
+    href: "mailto:filipa.ines.2002@gmail.com",
     label: "Email",
-    handle: "dev@filipaoliveira.vercel.app",
-  },
-  {
-    icon: <Github size={20} />,
-    href: "https://github.com/filipaoliveira",
-    label: "Github",
-    handle: "filipaoliveira",
+    handle: "filipa.ines.2002@gmail.com",
   },
 ];
 
