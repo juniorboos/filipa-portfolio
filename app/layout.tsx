@@ -6,15 +6,15 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "filipaoliveira.vercel.app",
-    template: "%s | filipaoliveira.vercel.app",
+    default: "Filipa Oliveira",
+    template: "%s | Filipa Oliveira",
   },
   description: "Co-founder of unkey.dev and founder of planetfall.io",
   openGraph: {
-    title: "filipaoliveira.vercel.app",
+    title: "Filipa Oliveira",
     description: "Co-founder of unkey.dev and founder of planetfall.io",
     url: "https://filipaoliveira.vercel.app",
-    siteName: "filipaoliveira.vercel.app",
+    siteName: "Filipa Oliveira",
     images: [
       {
         url: "https://filipaoliveira.vercel.app/og.png",
