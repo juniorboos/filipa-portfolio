@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     default: "Filipa Oliveira",
     template: "%s | Filipa Oliveira",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Designer de Interiores",
   openGraph: {
     title: "Filipa Oliveira",
-    description: "Co-founder of unkey.dev and founder of planetfall.io",
+    description: "Designer de Interiores",
     url: "https://filipaoliveira.vercel.app",
     siteName: "Filipa Oliveira",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         height: 1080,
       },
     ],
-    locale: "en-US",
+    locale: "pt-PT",
     type: "website",
   },
   robots: {
@@ -36,10 +36,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  twitter: {
-    title: "filipaoliveira",
-    card: "summary_large_image",
   },
   icons: {
     shortcut: "/favicon.png",
