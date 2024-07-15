@@ -53,9 +53,10 @@ export default function Example() {
     formData.append(process.env.NEXT_PUBLIC_GOOGLE_FORM_EMAIL_ID!, email);
     formData.append(process.env.NEXT_PUBLIC_GOOGLE_FORM_MESSAGE_ID!, message);
     setLoading(true);
-    return fetch(process.env.NEXT_PUBLIC_GOOGLE_FORM_ACTION_URL!, {
+    fetch(process.env.NEXT_PUBLIC_GOOGLE_FORM_ACTION_URL!, {
       method: "post",
       body: formData,
+      mode: "no-cors",
     })
       .catch(() => {})
       .finally(() => {
