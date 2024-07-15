@@ -81,7 +81,7 @@ export default function Example() {
             Contacto
           </h2>
           <p className="mt-4 text-zinc-400">
-            Entre em contato para descobrir como posso ajudar.
+            Entre em contacto para descobrir como posso ajudar.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
