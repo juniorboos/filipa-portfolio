@@ -7,21 +7,25 @@ import { Article } from "./article";
 import Image from "next/image";
 
 export default async function ProjectsPage() {
-  const featured = allProjects.find((project) => project.slug === "sala-1")!;
-  const top2 = allProjects.find((project) => project.slug === "sala-2")!;
-  const top3 = allProjects.find((project) => project.slug === "escritorio")!;
+  const featured = allProjects.find(
+    (project) => project.slug === "loja-do-ouro",
+  )!;
+  const top2 = allProjects.find(
+    (project) => project.slug === "renovacao-sala",
+  )!;
+  const top3 = allProjects.find((project) => project.slug === "garagem")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
       (project) =>
         project.slug !== featured.slug &&
         project.slug !== top2.slug &&
-        project.slug !== top3.slug
+        project.slug !== top3.slug,
     )
     .sort(
       (a, b) =>
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
+        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
     );
 
   return (
